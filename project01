@@ -1,1 +1,66 @@
-Hello World!
+package 제어문정리문제;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class 가위바위보게임cp {
+
+	public static void main(String[] args) {
+		//랜덤으로 숫자 꺼내도록 한다.
+		Random r = new Random();
+		//내가 낼 것을 입력받기
+		Scanner sc = new Scanner(System.in);
+		int total=0;
+		int win=0;
+		while (true) {
+			total++;
+			//0~2까지
+			int com = r.nextInt(3);
+			System.out.println("0)가위 1)바위 2)보");
+			int me = sc.nextInt();
+			//내가 가위를 냈을때
+			if (me == 0) {
+				if (com == 0) {
+					System.out.println("무승부");
+				} else if (com == 1) {
+					System.out.println("컴퓨터 승");
+				} else {
+					System.out.println("내가 승");
+					win++;
+				}
+			} //내가 바위를 냈을때
+			else if (me == 1) {
+				if (com == 0) {
+					System.out.println("내가 승");
+					win++;
+				} else if (com == 1) {
+					System.out.println("무승부");
+				} else {
+					System.out.println("컴퓨터 승");
+				}
+
+			} //내가 보를 냈을때
+			else {
+				if (com == 0) {
+					System.out.println("컴퓨터 승");
+				} else if (com == 1) {
+					System.out.println("내가 승");
+					win++;
+				} else {
+					System.out.println("무승부");
+				}
+			} 
+			System.out.println("종료하시겠습니까?");
+			String exit = sc.next();
+			if(exit.equals("o")) {
+				System.out.println("종료합니다.");
+				System.out.println(total+ "번의 게임 중 내가 이긴 횟수는 " +win);
+				System.exit(0);
+			}
+		}
+
+
+	}
+
+}
+
